@@ -105,7 +105,7 @@ body{
     display: block;
 }
 
-#main, #main_learn{
+#main{
     
     font-size: 14px;
     grid-area: main;
