@@ -166,6 +166,24 @@ animation: fadein 3s;
     }
 }
 
+#main_learn{
+    font-size: 14px;
+    grid-area: main;
+    display: grid;
+    padding-right: 40px;
+    grid-gap:10px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+#footnotes{
+  font-size: 12px;
+}
+sup{
+  fomt-size:12px;
+  color:var(--blue)
+}
 #main>div>p, #main_learn>div>p{
         padding: 5px;
         line-height: 1.5em;
