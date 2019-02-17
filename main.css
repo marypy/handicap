@@ -105,7 +105,7 @@ body{
     display: block;
 }
 
-#main {
+#main, #main_learn{
     
     font-size: 14px;
     grid-area: main;
@@ -166,30 +166,22 @@ animation: fadein 3s;
     }
 }
 
-
 #main>div>p, #main_learn>div>p{
         padding: 5px;
         line-height: 1.5em;
         text-align: justify;
 }
 
-
-#main>div, #last_article{
-    justify-self: center;
-    padding: 15px
-}
 #main>div>img, #main>div>a>img, #main_learn>div>img{
   max-width: 400px;
     height: auto
 }
-
-/*
-#main>div>p>a, #main_learn>div>p>a{
-
-    color: var(--light-blue);
-    
+#main_learn>div>h3{
+  color:var(--blue);
 }
-*/
+#main_learn>div>p{
+  padding-right: 20px;
+}
 
 
 #footer{
@@ -298,7 +290,7 @@ input[type=checkbox]:checked ~ #menu{
         position: fixed;
         z-index: 1;
         display:grid;
-        background-color: white;
+        background-color: var(--main-color);
         padding: 7px;
         font-size:14px;
         top: 0;
