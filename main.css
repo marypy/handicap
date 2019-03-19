@@ -340,10 +340,6 @@ input[type=checkbox]:checked ~ #menu{
         justify-self: center
     }
     
-   #main>div>img, #main>div>a>img{
-  max-width: 320px;
-    height: auto
-}
     
     #footer{
         display:grid;
