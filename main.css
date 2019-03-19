@@ -186,20 +186,17 @@ sup{
 }
 
 #main>div>p, #main_learn>div>p{
+        max-width: 600px;
         padding: 5px;
         line-height: 1.5em;
         text-align: justify;
 }
 
-#main>div>img, #main>div>a>img, #main_learn>div>img{
-  max-width: 600px;
-    height: auto
-}
+
 #main_learn>div>h3{
   color:var(--blue);
 }
 #main_learn>div>p{
-  max-width: 600px;
   padding: 20px;
 }
 
