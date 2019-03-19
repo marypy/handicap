@@ -192,14 +192,15 @@ sup{
 }
 
 #main>div>img, #main>div>a>img, #main_learn>div>img{
-  max-width: 400px;
+  max-width: 600px;
     height: auto
 }
 #main_learn>div>h3{
   color:var(--blue);
 }
 #main_learn>div>p{
-  padding-right: 20px;
+  max-width: 600px;
+  padding: 20px;
 }
 
 
