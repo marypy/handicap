@@ -34,7 +34,10 @@ body{
     grid-area: logo;
 }
 
-
+#main>img{
+    max-width: 600px;
+    padding: 20px;
+}
 #header{
 
     grid-area: header;
