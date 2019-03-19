@@ -38,6 +38,11 @@ body{
   max-width: 400px;
     height: auto
 }
+#main>div{
+  margins: 10px;
+}
+
+
 #header{
 
     grid-area: header;
