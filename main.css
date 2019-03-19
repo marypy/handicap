@@ -34,9 +34,9 @@ body{
     grid-area: logo;
 }
 
-#main>img{
-    max-width: 400px;
-    padding: 20px;
+#main>div>img, #main>div>a>img, #main_learn>div>img{
+  max-width: 400px;
+    height: auto
 }
 #header{
 
