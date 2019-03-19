@@ -34,15 +34,6 @@ body{
     grid-area: logo;
 }
 
-#main>div>img, #main>div>a>img, #main_learn>div>img{
-  max-width: 400px;
-    height: auto
-}
-#main>div{
-  margins: 10px;
-}
-
-
 #header{
 
     grid-area: header;
@@ -191,12 +182,16 @@ sup{
 }
 
 #main>div>p, #main_learn>div>p{
-        max-width: 600px;
-        padding: 5px;
+        max-width: 500px;
+        padding: 10px;
         line-height: 1.5em;
         text-align: justify;
 }
 
+#main>div>img, #main>div>a>img, #main_learn>div>img{
+  max-width: 400px;
+    height: auto
+}
 
 #main_learn>div>h3{
   color:var(--blue);
