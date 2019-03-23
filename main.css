@@ -123,14 +123,13 @@ animation: fadein 3s;
 
 }
 #main>div>h3, #main_learn>div>h3{
-    
-  color:var(--blue); 
+    color:var(--blue); 
 }
 
-#main>div>p>a, #main_learn>div>h3{
+#main>div>p>a{
    color:var(--light-blue); 
 }
-#main>div>p{
+#main>div>p,#main>div>span{
         max-width: 500px;
         padding: 10px;
         line-height: 1.5em;
