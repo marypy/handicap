@@ -141,12 +141,6 @@ animation: fadein 3s;
     height: auto
 }
 
-#main_learn>div>p, #main_learn>div>img{
-  max-width: 80%;
-  padding-left: 10%px;
-  line-height: 1.5em;  
-}
-
 #main_learn{
     font-size: 14px;
     grid-area: main;
@@ -156,6 +150,14 @@ animation: fadein 3s;
     padding-bottom: 20px;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+}
+#main_learn>div>p, #main_learn>div>img{
+  max-width: 80%;
+  padding-left: 10%px;
+  line-height: 1.5em;  
+}
+#legend{
+  font-size:12px;
 }
 
 #footnotes{
