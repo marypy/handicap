@@ -1,147 +1,411 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>handicap mental en france etat des lieux</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/addons/p5.dom.min.js"></script>
-    <script src="script.js"></script>
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+:root {
+    --main-color:#f7f7f7;
+    --secondary-color: #545454;
+    --blue: #0F4AAA;
+    --light-blue: #2377ff;
+    --red: #ee3f1e;
     
-</head>
-<body>
-    <div class= "grid-wrapper">
-        <div id ="logo">
-            <img src="images/logo1.png"/>
+}
+/*
+body{
+   background-color: var(--main-color);
+}
+*/
+.grid-wrapper {
+    min-height: 100%;
+        font-family: AtlasGroteskWeb,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        color:var(--secondary-color); 
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 1fr 6fr;
+        grid-template-rows: auto;
+        grid-template-areas: "logo   header"
+                             "menu   main"
+                             "empty  main"
+                             "footer footer";
+           
+                        }  
+#logo{
+    justify-self:center;
+    grid-area: logo;
+}
 
+#header{
+    font-size: 18px;
+    grid-area: header;
+    align-self: center; 
+    color:var(--blue);
+}
+#header>span{
+    font-size: 30px;
+}
 
+#menu{
+       font-size: 1em;
+       display: grid;
+       grid-area: menu;
+       justify-self: center;
+        grid-template-columns: 1fr;
+        grid-template-rows:auto;
+        padding-top: 30px
+       }
+#menu>nav>span>a{
+    text-decoration: none;
+}
 
-        </div>
-        <div id = "header"><span>Ils comptent (aussi) </span>
-        <br> pour la visibilité des personnes handicapées en France
-        </div>
-        <label for="show-menu" class="show-menu">menu</label>
-            <input type="checkbox" id="show-menu" role="button">
-       
-        <div id="menu">
-            
-            <span class = "dropdown" id = "here">
-                ils/elles comptent</span>
-                
-                <nav class = "dropdown">
-                <span>textes du droit</span>
-                <ul class="dropdown-content">
-				
-                    <li><a href="conventions.html">Conventions </a></li>
-                    
-                <li><a href="loi_francaise.html">Loi frnacaise</a></li>
-				
-            </ul>
-            </nav>
-                <nav class = "dropdown">
-                <span>situation en France</span>
-                <ul class="dropdown-content">
-				
-                    <li><a href="tutelle.html">regime de tutelle</a></li>
-                    
-                <li><a href="ghettoisation.html">ghettoisation</a></li>
-				
-                    
-            </ul>
-            </nav>
-                    
-            <nav class = "dropdown">
-                <span>devenir visibles</span>
-              <ul class="dropdown-content">
-				
-                    <li><a href="temoignages.html">temoignages</a></li>
-                    
-                <li><a href="donnees.html">les données</a></li>
-				
-                    
-            </ul>
-            </nav>
-                    
-            <nav class = "dropdown">
-                <span><a href="mailto:handmadewebcork@gmail.com">contact</a></span>
-        
-            </nav>
-       
-        </div>
-        <div id = "main">
-        <div>
-        <h3>Handicapés mentaux, les invisibles et incomptés</h3>
-		<img src ="images/capture.png">
-<p>
-            
-	Il n’existe que <a href = "donnees.html" target = "blanc">très peu de données</a> sur les personnes considérées comme atteintes d’altération mentale, toutes celles et ceux qui sont déclarés en France comme incapables de discernement. Ce sont des personnes à part entière dont il s’agit, des citoyens comme les autres, mais dont la vie est vue comme moindre que celle des autres.<br><br>
+#empty{
+    grid-area: empty;
+}
 
-Déjà en butte à des difficultés d’accès à l’éducation durant l’enfance et la jeunesse, une fois majeures, ces personnes se retrouvent privées de droits car privées de voix, et sont (presque) toujours contraintes de vivre enfermées à vie, que cet enfermement soit consenti (par l’entourage, faute d’autre solution), ou non consenti.<br><br>
+.dropdown{
+    padding-bottom:  90px;
+}
 
-Ajouté au manque des données, cela crée une invisibilité, qui finalement arrange bien tout le monde. Dans une société régie
-par la chiffre et par l'image, l'absence de la visibilité  équivaut à une disparition pure et simple. Pour lutter contre cet
-état de fait, nous pensons que la première chose à faire est une forme de recensement.<br><br>
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 30px;
+    z-index: 1;
+}
 
-Plus largement, ce site est conçu comme une plateforme d’information (en particulier sur le droit international ratifié par
-la France), de témoignages, de mise en relation de toutes celles et ceux qui veulent et/ou doivent combattre le non-droit 
-institué par les pratiques habituelles. Pour tenter de rendre visibles, ramener à l’existence commune celles et ceux qui en 
-sont écartés.
-  <br><br>  
-Nous sommes très loin de la bienpensance, commune à beaucoup des sites existants et des assosiation gestionnaires. Nous savons,
-étant nous mêmes des proches d’une personne en situation de relégation sociale, que les bonnes paroles qui y sont professées
-cahchent souvent la réalité morbide. Nous sentons l'urgence de changer cet état des choses. 
-</p>
-        </div>
-        <div>
-        <h3>Notre action</h3>
-		<img src ="images/dimitry.jpg" alt = "Dimitry Fargette">
-            <p>
-		    
-<em> Il est urgent de lancer une campagne de sensibilisation 
-	à grande échelle sur une politique du handicap fondée sur les droits.</em><br>
-(Observations préliminaires, Catalina Devandas-Aguilar, Rapporteuse spéciale à l'ONU, Octobre 2017)
-<br><br>
-Notre objectif initial étant la visibilité, notre action a pour but de recueillir, aussi largement que possible, 
-des données et les rendre visibles par la diffusion (dans <a href ="">notre rubrique spécialement dédiée</a>) sous forme textuelle et visuelle.<br><br>
-Nous nous attachons au principe du respect de la vie privée et de l'anonymat des données. C’est une tâche très délicate car devant concilier la position de chacun vis-à-vis des données avec la volonté de visibilité (donc la médiatisation). Ce sera donc à  celles et ceux qui témoigneront de décider du niveau d'anonymat, en concertation  avec les personnes handicapées concernées.<br><br>
-                
-Vous pouvez compléter <a href ="", target = "blanc">le formulaire en ligne</a> (les données recueillies, même anonymes, alimenteront notre 
-base de données) mais vous pouvez aussi écrire un témoignage en <a href="mailto:handmadewebcork@gmail.com">nous contactant</a> 
-directement. Dans les deux cas, vous avez le choix d'utiliser ou pas les vrais noms et adresses. Si vous nous confiez des 
-images, nous vous demandons un consentement explicite à leur utilisation.
-<br><br>
-Notre objectif à long terme est la reconaissance des personnes handicapées comme des sujets de droit et la suppression des
-"régimes de protections" violant la Convention Internationale des Droits des Personnes Handicapées.    
-     <br><br>
-Notre action n'a aucun but lucrarif et n'est rénumérée par aucun fonds, privé ou public. 
-            </p>
-        </div>
-            <div>
-        <h3>Dernier article</h3>
-	<img src ="images/mas.png" alt = "entree d'une MAS"/>
-		    
-		    <h3>Un regard sévère de l’ONU sur la politique française du handicap </h3>
-	<p>
-	Le Conseil des droits de l’homme de l’ONU a publié début mars le rapport de Mme Catalina Devandas-Aguilar sur les 
-	droits des personnes handicapées en France, suite à sa visite en 2017. C’est un texte important sur lequel s’appuyer.
-	Par-delà les exigences du langage diplomatique, ce texte fait plus que pointer des retards, il stigmatise la politique 
-	d’ambiguïté des autorités françaises : discours répétés sur la volonté d’inclusion d’un côté, et en même temps 
-	perpétuation par les «acteurs de terrain» de pratiques ignorant purement et simplement les engagements de la France. 
-	La main gauche ignore ce que fait la main droite. Notons que la rapporteuse ne s’est pas contentée de rencontrer des 
-	interlocuteurs nationaux, mais qu’elle s’est aussi rendue sur le terrain, y compris en province.
-<br><br>
-	
-
-		<a href = "ghettoisation.html"> Lire la suite de l'article >>></a>	
-	</p>
-        </div>
-        </div>
-        <div id="footer"><span>All Right reserved</span>
-        <span>Proudly free from Wordpress</span>
-            <span>Designed and managed by <a href="mailto:handmadewebcork@gmail.com">Hand Made Web</a></span>
-        
-        </div>
-    </div>
+.dropdown-content li a {
+    text-decoration: none;
+    display: block;
+    color:var(--light-grey);
+    padding: 0;
+    padding-bottom:1em;
   
-</body>
-</html>
+}
+
+#menu>nav>span>a, #main>div>a>h4, #menu>nav>a, #menu>span>a{
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    color:var(--light-grey);
+}
+
+#here, #here>a, #menu>span>a:hover, 
+.dropdown-content a:hover,
+#menu>nav>span>a:hover {
+    color:var(--light-blue);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    list-style: none;}
+  
+#menu>nav>ul>li{ 
+    display: block;
+}
+
+#main{
+    
+    font-size: 14px;
+    grid-area: main;
+    display: grid;
+    padding-right: 1em;
+    grid-gap:1em;
+    padding-bottom: 2em;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "action publications";
+}
+.media {
+  margin-bottom: 2em;
+  border: 0.5px solid #444;
+  padding: 10px;
+}
+
+.media > .title { grid-area: title; }
+.media > .img { grid-area: img; }
+.media > .content { grid-area: bd; }
+.media > .footer { grid-area: ft; }
+
+  .media .img {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 200px;
+  }
+
+  .media.media-flip .img {
+    float: right;
+    margin: 0 0 0 10px;
+      width: 200px;
+  }
+
+  .media > * {
+    margin: 0 0 0 160px;
+  }
+
+  .media.media-flip > * {
+    margin: 0 160px 0 0;
+  }
+
+  @supports(display: grid ) {
+    /* override */
+    .media > *,
+    .media.media-flip > * {
+      margin: 0;
+    }
+    .media .img,
+    .media.media-flip .img {
+      width: auto;
+      margin: 0;
+    }
+
+.media {
+      display: grid;
+      grid-column-gap: 20px;
+      grid-template-columns: 300px 3fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "img title"
+        "img bd";
+    }
+
+    .media.media-flip {
+      grid-template-columns: 3fr 300px ;
+      grid-template-areas:
+        "title img"
+        "bd img";
+    }
+
+img {
+  max-width: 100%;
+}
+
+
+h2{color: var(--red);
+          
+      }
+#main>div>h3, #main_learn>div>h3, .title{
+    color:var(--blue); 
+}
+
+#main>div>p>a, .content>p>a{
+   color:var(--light-blue); 
+}
+#main>div>p,#main>div>span{
+        max-width: 500px;
+        padding: 10px;
+        line-height: 1.5em;
+        text-align: justify;
+}
+
+#main>div>img, #main>div>a>img{
+  max-width: 400px;
+    height: auto
+}
+
+#main_learn{
+    font-size: 14px;
+    grid-area: main;
+    display: grid;
+    padding-right: 20px;
+    grid-gap:10px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+#main_learn>div>p, #main_learn>div>img{
+  max-width: 80%;
+  padding-left: 10%px;
+  line-height: 1.5em;  
+}
+#legend{
+  font-size:12px;
+}
+
+#footnotes{
+  font-size: 12px;
+}
+sup{
+  font-size: 12px;
+  color:var(--blue)
+}
+
+#footer{
+    align-self: end;
+    min-height: 40px;
+    font-size: 14px;
+    color:var(--secondary-color);
+    grid-area: footer;
+    padding-left: 15%;
+    padding-right: 15%;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns:repeat(3, 1fr);
+    grid-template-rows: auto;
+    
+}
+
+#footer>span{
+    align-self: center;
+    justify-self: center;
+    margin: 15px;
+}
+
+#footer>div>a>img{
+    max-height: 60px;
+    width: auto;
+    padding: 10px;
+}
+
+
+.show-menu {display:none}
+
+input[type=checkbox]{
+    display: none;
+}
+
+@media only screen and (max-width: 900px){
+    .grid-wrapper {
+        display:grid;
+        grid-gap: 2px;
+        grid-template-columns:1fr;
+        grid-template-rows: auto;
+        
+        grid-template-areas: "logo"
+                             "header"
+                             "button"
+                             "menu"
+                             "main"
+                             "footer"
+    }
+    
+ 
+    #logo>img{
+        max-width: 100px;
+        height: auto
+    }
+    
+    #header{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        font-size: 18px;
+    }
+    #header>span, #header>p{
+        letter-spacing: normal;
+        justify-self:center;
+    }
+    
+    #header>div>a>img{
+        padding: 5px;
+    
+    }
+    
+.show-menu {
+    display: block;
+    grid-area: button;
+    text-decoration: none;
+    font-size: 12px;
+    color: orangered;
+    background-color: rgba(249,249,249, 0.9);
+    text-align: center;
+    z-index: 2;
+        position: sticky;
+        top:0;
+        font-size:18px;
+        padding:.4em;
+        z-index: 0;
+    transition: all 0.4s ease-in-out;
+
+}
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    justify-self:end;
+    display: grid;
+    transform: translateX(340px);
+}
+
+#menu {
+        position: fixed;
+        z-index: 1;
+        display:grid;
+        background-color: var(--main-color);
+        padding: 7px;
+        font-size:14px;
+        top: 0;
+        bottom: 0;
+        width: 150px;
+        left: -340px;
+        transition: transform .3s ease-in-out;
+    }
+    
+    .dropdown-content{
+        min-width: 20px;
+        padding: 0;
+    }
+   
+    #menu>ul>li>a, #menu>nav>span{
+        padding:0
+    }
+    
+    #main {
+    font-size: 14px;
+    grid-area: main;
+    display: grid;
+        padding: 1em;
+        justify-self:center;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "action"
+            "publications"
+        }
+    
+img {
+  width:60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+ .title{
+  text-align: center;
+    }
+    .media > *, .media.media-flip > *{
+        margin-bottom: 20px;
+    }
+p {
+  margin: 1em 1em 1em 1em;
+}
+
+.media, .media.media-flip {
+display: grid;
+grid-template-columns: 1fr;
+grid-auto-rows: auto;
+grid-column-gap: 2em;
+grid-template-areas:
+    "title"
+    " img "
+    " bd ";
+}
+    
+.media>.img {
+    clear: left;
+    
+  }
+
+    #main>div{
+        justify-self: center
+    }
+    
+    
+    #footer{
+        display:grid;
+        grid-template-columns: auto;
+    }
+
+     
+}
