@@ -318,9 +318,6 @@ input[type=checkbox]{
 
 }
   
-  .dropdown{
-    padding-bottom:  40px;
-}
 /*Hide checkbox*/
 input[type=checkbox]{
     display: none;
