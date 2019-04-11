@@ -212,6 +212,10 @@ h2{color: var(--red);
     grid-template-columns: 1fr;
     grid-template-rows: auto;
 }
+#main_learn>#center{
+  padding-left: 5em;
+  padding-right: 5em;
+    }
 #main_learn>div>p, #main_learn>div>img{
   max-width: 80%;
   padding-left: 10%px;
