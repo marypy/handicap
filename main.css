@@ -266,6 +266,41 @@ sup{
 input[type=checkbox]{
     display: none;
 }
+@media only screen and (max-width: 1050px){
+img {
+  width:60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+ .title{
+  text-align: center;
+    }
+    .media > *, .media.media-flip > *{
+        margin-bottom: 20px;
+    }
+p {
+  margin: 1em 1em 1em 1em;
+}
+
+.media, .media.media-flip {
+display: grid;
+grid-template-columns: 1fr;
+grid-auto-rows: auto;
+grid-column-gap: 2em;
+grid-template-areas:
+    "title"
+    " img "
+    " bd ";
+}
+    
+.media>.img {
+    clear: left;
+    
+  }
+    }
+
 
 @media only screen and (max-width: 900px){
     .grid-wrapper {
@@ -368,39 +403,7 @@ input[type=checkbox]:checked ~ #menu{
             "action"
             "publications"
         }
-    
-img {
-  width:60%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
- .title{
-  text-align: center;
-    }
-    .media > *, .media.media-flip > *{
-        margin-bottom: 20px;
-    }
-p {
-  margin: 1em 1em 1em 1em;
-}
-
-.media, .media.media-flip {
-display: grid;
-grid-template-columns: 1fr;
-grid-auto-rows: auto;
-grid-column-gap: 2em;
-grid-template-areas:
-    "title"
-    " img "
-    " bd ";
-}
-    
-.media>.img {
-    clear: left;
-    
-  }
+   
 
     #main>div{
         justify-self: center
