@@ -345,7 +345,7 @@ grid-template-areas:
     text-decoration: none;
     font-size: 12px;
     color: orangered;
-    background-color: rgba(249,249,249, 0.9);
+    background-color: rgba(255,255,255, 0.9);
     text-align: center;
     z-index: 2;
         position: sticky;
