@@ -183,7 +183,7 @@ img {
 h2{color: var(--red);
           
       }
-#main>div>h3, #main_learn>div>h3, .title{
+#main>div>h3, #main_learn>div>h4, .title{
     color:var(--blue); 
 }
 
