@@ -83,7 +83,7 @@ body{
   
 }
 
-#menu>nav>span>a, #main>div>a>h4, #menu>nav>a, #menu>span>a{
+#menu>nav>span>a, #main>div>a>h4, #menu>nav>a, #menu>span>a, #top>a>h4{
     text-decoration: none;
     display: block;
     padding: 0;
