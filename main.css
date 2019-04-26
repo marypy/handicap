@@ -87,7 +87,7 @@ body{
     text-decoration: none;
     display: block;
     padding: 0;
-    color:var(--light-grey);
+    color:var(--blue);
 }
 
 #here, #here>a, #menu>span>a:hover, 
