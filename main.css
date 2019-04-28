@@ -5,7 +5,7 @@ html {
   box-sizing: inherit;
 }
 :root {
-    --main-color:#f7f7f7;
+    --main-color: white;
     --secondary-color: #545454;
     --blue: #0F4AAA;
     --light-blue: #2377ff;
