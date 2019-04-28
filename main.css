@@ -58,7 +58,7 @@ input {
   border-style:solid;
   border-color:transparent;
 }
-input[type="text"] {
+input[type="email"] {
   padding:2px 12px;
   margin-bottom:8px;
   border-color:#c9c9c9;
