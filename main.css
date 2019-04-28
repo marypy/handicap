@@ -413,12 +413,12 @@ grid-template-areas:
         max-width: 100px;
         height: auto
     }
-    
     #header{
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 2fr 1fr;
+        grid-template-rows:auto;
         font-size: 18px;
+        padding: 0;
     }
     #header>span, #header>p{
         letter-spacing: normal;
@@ -426,7 +426,7 @@ grid-template-areas:
     }
     
     #header>div>a>img{
-        padding: 5px;
+        padding:2px;
     
     }
     
