@@ -424,6 +424,9 @@ grid-template-areas:
         letter-spacing: normal;
         justify-self:center;
     }
+  #big_header{
+    font-size: 18px;
+  }
     
     #header>div>a>img{
         padding:2px;
