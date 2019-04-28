@@ -432,6 +432,19 @@ grid-template-areas:
         padding:2px;
     
     }
+  #newsletter {
+  width:250px;
+  height:150px;
+  }
+  #newsletter form {
+  padding:14px 10px 10px;
+}
+#newsletter form .title {
+  font-size:18px;
+  font-weight:100;
+  color:#4783ce;
+  margin-bottom:5px;
+}
     
 .show-menu {
     display: block;
