@@ -36,7 +36,7 @@ body{
     grid-area: logo;
 }
 h2, h3, h4{
-  weight: 100
+  font-weight: 200
 }
 
 #header{
