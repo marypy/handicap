@@ -35,6 +35,9 @@ body{
     justify-self:center;
     grid-area: logo;
 }
+h{
+  weight: 200
+}
 
 #header{
     font-size: 28px;
