@@ -296,8 +296,9 @@ h2{
 
 #main>div>p, #main>div>span, #main_learn>div>p, #main_learn>div>img{
   max-width: 100%;
+  padding-right: 10%;
   line-height: 1.5em; 
-   text-align: center;
+  text-align: center;
 }
 }
 #legend{
@@ -333,13 +334,6 @@ sup{
     margin: 15px;
 }
 
-#footer>div>a>img{
-    max-height: 60px;
-    width: auto;
-    padding: 10px;
-}
-
-
 .show-menu {display:none}
 
 input[type=checkbox]{
@@ -347,7 +341,7 @@ input[type=checkbox]{
 }
 @media only screen and (max-width: 1050px){
 img {
-  width:60%;
+  width:80%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -359,9 +353,10 @@ img {
     .media > *, .media.media-flip > *{
         margin-bottom: 20px;
     }
-  #main_learn>div>p, #main_learn>div>img{
-  max-width: 100%;
+  #main_learn>div>p,#main_learn>div>h {
+  max-width: 90%;
   padding:0;
+  margin: auto;
   line-height: 1.5em;  
 }
   p {
