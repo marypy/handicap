@@ -408,7 +408,7 @@ grid-template-areas:
         max-width: 100px;
         height: auto
     }
-    #header{
+    #header, #big_header{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows:auto;
