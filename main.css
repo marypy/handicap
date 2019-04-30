@@ -301,8 +301,7 @@ h2{
 }
 
 #main_learn>div>p, #main_learn>div>img{
-  max-width: 80%;
-  padding-left: 10%;
+  max-width: 100%;
   line-height: 1.5em;  
 }
 #legend{
