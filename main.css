@@ -504,12 +504,8 @@ input[type=checkbox]:checked ~ #menu{
             "action"
             "publications"
         }
-  #main_learn{
-    text-align: center;
-    width: 80%;
-  }
   
-   #main>div{
+   #main>div, #main_learn>div{
         justify-self: center
     }
     
