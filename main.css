@@ -340,7 +340,7 @@ input[type=checkbox]{
 }
 @media only screen and (max-width: 1050px){
 img {
-  width:80%;
+  max-width:100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -352,8 +352,8 @@ img {
     .media > *, .media.media-flip > *{
         margin-bottom: 20px;
     }
-  #main_learn>div>p,#main_learn>div>h {
-  max-width: 80%;
+  #main_learn>div>p,#main_learn>div>h2, #main_learn>div>h3,#main_learn>div>h4, {
+  max-width: 90%;
   padding:10%;
   margin: auto;
   line-height: 1.5em;  
