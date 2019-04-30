@@ -364,7 +364,12 @@ img {
     .media > *, .media.media-flip > *{
         margin-bottom: 20px;
     }
-p {
+  #main_learn>div>p, #main_learn>div>img{
+  max-width: 100%;
+  padding:0;
+  line-height: 1.5em;  
+}
+  p {
   margin: 1em 1em 1em 1em;
 }
 
