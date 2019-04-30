@@ -294,8 +294,8 @@ h2{
     grid-template-rows: auto;
 }
 
-#main>div>p, #main>div>span, #main_learn>div>p, #main_learn>div>img{
-  max-width: 100%;
+#main>div>p, #main>div>span, #main_learn>div>p{
+  max-width: 90%;
   padding-right: 10%;
   line-height: 1.5em; 
 }
@@ -354,14 +354,11 @@ img {
     }
   #main_learn>div>p,#main_learn>div>h2, #main_learn>div>h3,#main_learn>div>h4, {
   max-width: 90%;
-  padding:10%;
+  padding: 1em 1em 1em 1em;
   margin: auto;
   line-height: 1.5em;  
 }
-  p {
-  margin: 1em 1em 1em 1em;
-}
-
+  
 .media, .media.media-flip {
 display: grid;
 grid-template-columns: 1fr;
