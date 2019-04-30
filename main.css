@@ -198,7 +198,6 @@ input[type="submit"] {
 }
 
 #main{
-    
     font-size: 14px;
     grid-area: main;
     display: grid;
@@ -304,13 +303,10 @@ h2{
     grid-template-columns: 1fr;
     grid-template-rows: auto;
 }
-#main_learn>#center{
-  padding-left: 5em;
-  padding-right: 5em;
-    }
+
 #main_learn>div>p, #main_learn>div>img{
   max-width: 80%;
-  padding-left: 10%px;
+  padding-left: 10%;
   line-height: 1.5em;  
 }
 #legend{
@@ -418,7 +414,7 @@ grid-template-areas:
         grid-template-columns: 1fr;
         grid-template-rows:auto;
         padding: 0;
-        font-size: 24px;
+        font-size: 22px;
     }
     #header>span, #header>p{
         letter-spacing: normal;
@@ -506,7 +502,8 @@ input[type=checkbox]:checked ~ #menu{
         }
   
    #main>div, #main_learn>div{
-        justify-self: center
+        margin: auto;
+        width: 80%;
     }
     
     
