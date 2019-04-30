@@ -272,10 +272,10 @@ img {
   max-width: 100%;
 }
 
-
-h2{color: var(--red);
-          
-      }
+h2{
+  color: var(--red);
+  padding: 10px;
+  }
 #main>div>h3, #main_learn>div>h4, .title{
     color:var(--blue); 
 }
@@ -291,7 +291,7 @@ h2{color: var(--red);
 }
 
 #main>div>img, #main>div>a>img{
-  max-width: 400px;
+    max-width: 400px;
     height: auto
 }
 
@@ -424,15 +424,11 @@ grid-template-areas:
     }
     #header>span, #header>p{
         letter-spacing: normal;
-        justify-self:center;
+        text-align: center;
     }
     
-    #header>div>a>img{
-        padding:2px;
-    
-    }
   #newsletter {
-  z-index: 2;
+  z-index: 0;
   width:180px;
   height:150px;
   }
@@ -459,7 +455,7 @@ grid-template-areas:
         top:0;
         font-size:18px;
         padding:1em;
-        z-index: 0;
+        z-index: 1;
     transition: all 0.4s ease-in-out;
 
 }
@@ -511,12 +507,11 @@ input[type=checkbox]:checked ~ #menu{
             "publications"
         }
   #main_learn{
-    padding: 5px;
+    text-align: center;
+    width: 80%;
   }
   
-   
-
-    #main>div{
+   #main>div{
         justify-self: center
     }
     
