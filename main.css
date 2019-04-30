@@ -277,12 +277,6 @@ h2{
 #main>div>p>a, .content>p>a{
    color:var(--light-blue); 
 }
-#main>div>p,#main>div>span{
-        max-width: 500px;
-        padding: 10px;
-        line-height: 1.5em;
-        text-align: justify;
-}
 
 #main>div>img, #main>div>a>img{
     max-width: 400px;
@@ -300,9 +294,11 @@ h2{
     grid-template-rows: auto;
 }
 
-#main_learn>div>p, #main_learn>div>img{
+#main>div>p, #main>div>span, #main_learn>div>p, #main_learn>div>img{
   max-width: 100%;
-  line-height: 1.5em;  
+  line-height: 1.5em; 
+   text-align: center;
+}
 }
 #legend{
   font-size:12px;
