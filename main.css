@@ -505,7 +505,9 @@ input[type=checkbox]:checked ~ #menu{
         margin: auto;
         width: 80%;
     }
-    
+    img{
+      padding:0;
+  }
     
     #footer{
         display:grid;
