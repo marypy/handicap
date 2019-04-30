@@ -224,6 +224,7 @@ input[type="submit"] {
     width: 200px;
   }
 
+
   .media.media-flip .img {
     float: right;
     margin: 0 0 0 10px;
@@ -266,6 +267,11 @@ input[type="submit"] {
         "title img"
         "bd img";
     }
+
+    
+img {
+  max-width: 100%;
+}
 
 h2{
   color: var(--red);
