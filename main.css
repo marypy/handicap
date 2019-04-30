@@ -353,8 +353,8 @@ img {
         margin-bottom: 20px;
     }
   #main_learn>div>p,#main_learn>div>h {
-  max-width: 90%;
-  padding:0;
+  max-width: 80%;
+  padding:10%;
   margin: auto;
   line-height: 1.5em;  
 }
