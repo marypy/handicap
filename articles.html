@@ -141,9 +141,9 @@ chart1.append("path")
         .style("fill", "steelblue")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) {
-            let y = y(d.lemonde);
-            console.log("lemonde cy"+y);
-            return y;
+            let foo = y(d.lemonde);
+            console.log("lemonde cy"+foo);
+            return foo;
         })		
         .on("mouseover", function(d) {		
             div.transition()		
@@ -165,9 +165,9 @@ chart1.append("path")
         .style("fill", "red")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { 
-            let y = y(d.theguardian);
-            console.log("guardian cy: "+y);
-            return y;
+            let foo = y(d.theguardian);
+            console.log("guardian cy: "+foo);
+            return foo;
         })		
         .on("mouseover", function(d) {		
             div_g.transition()		
