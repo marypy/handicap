@@ -142,7 +142,7 @@ chart1.append("path")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) {
             var foo = y(d.lemonde);
-            console.log("lemonde cy: "+foo);
+            console.log("lemonde ("+d.lemonde+") cy: "+foo);
             return foo;
         })		
         .on("mouseover", function(d) {		
@@ -166,7 +166,7 @@ chart1.append("path")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { 
             var foo = y(d.theguardian);
-            console.log("guardian cy: "+foo);
+            console.log("guardian ("+d.theguardian+") cy: "+foo);
             return foo;
         })		
         .on("mouseover", function(d) {		
