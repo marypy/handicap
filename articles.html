@@ -141,7 +141,7 @@ chart1.append("path")
         .style("fill", "steelblue")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) {
-            let foo = y(d.lemonde);
+            var foo = y(d.lemonde);
             console.log("lemonde cy"+foo);
             return foo;
         })		
@@ -165,7 +165,7 @@ chart1.append("path")
         .style("fill", "red")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { 
-            let foo = y(d.theguardian);
+            var foo = y(d.theguardian);
             console.log("guardian cy: "+foo);
             return foo;
         })		
