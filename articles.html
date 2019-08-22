@@ -220,20 +220,26 @@ chart1.append("path")
     <br><br><br><br>
 
 <script>
+    
 // Set the dimensions of the canvas / graph
-var margin = {top: 30, right: 20, bottom: 30, left: 60},
-    width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 10, right: 10, bottom: 30, left: 30},
+    width = 1400 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
+    
 // Parse the date / time
 var parseDate = d3.time.format("%Y").parse;
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 // Define the axes
+    
 var xAxis = d3.svg.axis().scale(x)
-    .orient("bottom").ticks(12);
+    .orient("bottom")
+    .ticks(d3.time.date,1)
+    .tickFormat(d3.time.format('%Y'));
+
 var yAxis = d3.svg.axis().scale(y)
-    .orient("left").ticks(10);
+    .orient("left").ticks(11);
     
 // Define the Guardian line
 var theguardianline = d3.svg.line()
