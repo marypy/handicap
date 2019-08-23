@@ -211,19 +211,32 @@ var margin = {top: 30, right: 20, bottom: 30, left: 60},
       
 // Parse the date / time
 var parseDate = d3.time.format("%Y").parse;
+      
 // Set the ranges
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
+      
 // Define the axes
 var xAxis = d3.svg.axis().scale(x)
     .orient("bottom").ticks(11);
+      
 var yAxis = d3.svg.axis().scale(y)
     .orient("left").ticks(11);
+      
+/ Define the theguardian's line
+var theguardianline = d3.svg.line()
+    .x(function(d) { return x(d.date);})
+    .y(function(d) { return y(d.theguardian); });
+    
+// Define the lemonde' line
+var lemondeline = d3.svg.line()
+    .x(function(d) { return x(d.date);})
+    .y(function(d) { return y(d.lemonde); });
     
    // Adds the svg canvas
 var chart2 = d3.select("body")
     .append("svg")
-        .attr("width", width + margin.left + margin.right)
+        .attr("width", width + margin.left +100 + margin.right)
         .attr("height", height + margin.top + margin.bottom)
     .append("g")
         .attr("transform", 
@@ -232,20 +245,14 @@ var chart2 = d3.select("body")
 d3.csv("data1.csv", function(error, data) {
     data.forEach(function(d) {
         d.date = parseDate(d.date);
-        d.lemone = +d.lemonde;
+        d.lemonde = +d.lemonde;
         d.theguardian = +d.theguardian;
     });
+    
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.date; }));
     y.domain([0, d3.max(data, function(d) { return d.theguardian; })]);
     
-var theguardianline = d3.svg.line()
-    .x(function(d) { return x(d.date);})
-    .y(function(d) { return y(d.theguardian); });
-    
-var lemondeline = d3.svg.line()
-    .x(function(d) { return x(d.date);})
-    .y(function(d) { return y(d.lemonde); });
         
     // Add the theguardian path.
     chart2.append("path")
