@@ -198,6 +198,27 @@ d3.csv("data.csv", function(error, data) {
         .call(yAxis);
 
 });
+    </script>
+    
+<p class="title"><span style="color: red">- </span>The Guardian</p>
+<p class="title"> <span style="color:steelblue">- </span>Le Monde</p>
+    
+  <script>
+      
+var margin = {top: 30, right: 20, bottom: 30, left: 60},
+    width = 600 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+      
+// Parse the date / time
+var parseDate = d3.time.format("%Y").parse;
+// Set the ranges
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(11);
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(11);
     
    // Adds the svg canvas
 var chart2 = d3.select("body")
@@ -293,9 +314,5 @@ var lemondeline = d3.svg.line()
     
     </script>
     
-<p class="title"><span style="color: red">- </span>The Guardian</p>
-<p class="title"> <span style="color:steelblue">- </span>Le Monde</p>
-       
-    <br><br><br><br>  
  
 </body>
