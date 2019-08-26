@@ -1,94 +1,237 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style> /* set the CSS */
+<html>
+  <head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+      <style>
+    body {
+    font-family: Sans-Serif, Veranda;
+}
+          
+h1{
+margin: 15px;
+color: steelblue;
+    font-size: 18px
 
-/* .line {
+          }
+.line {
+  stroke-width: 2;
   fill: none;
-  stroke: steelblue;
-  stroke-width: 2px;
-} */
+}
 
-</style>
-<body>
+.axis path {
+  stroke: black;
+}
 
-<!-- load the d3.js library -->    	
-<script src="https://d3js.org/d3.v4.min.js"></script>
+.text {
+  font-size: 14px;
+}
+
+.title-text {
+  font-size: 14px;
+}
+          </style>
+  </head>
+  <body>
+<h1>Evolution of number of articles about mental/learning disability and autism in Le Monde and The Guardian newspapers</h1>
+    <div id="chart"></div>
 <script>
+var data = [
+    {
+    name: "theguardian",
+    values: [
+      {date: "2008", titles: "18"},
+      {date: "2009", titles: "45"},
+      {date: "2010", titles: "32"},
+      {date: "2011", titles: "37"},
+      {date: "2012", titles: "56"},
+      {date: "2013", titles: "60"},
+      {date: "2014", titles: "53"},
+      {date: "2015", titles: "88"},
+      {date: "2016", titles: "110"},
+      {date: "2017", titles: "83"},
+      {date: "2018", titles: "67"},
+      {date: "2019", titles: "68"}
+      
+    ]
+  },
+    
+  {
+    name: "lemonde",
+    values: [
+      {date: "2008", titles: "2"},
+      {date: "2009", titles: "3"},
+      {date: "2010", titles: "6"},
+      {date: "2011", titles: "8"},
+      {date: "2012", titles: "27"},
+      {date: "2013", titles: "15"},
+      {date: "2014", titles: "18"},
+      {date: "2015", titles: "5"},
+      {date: "2016", titles: "15"},
+      {date: "2017", titles: "10"},
+      {date: "2018", titles: "19"},
+      {date: "2019", titles: "12"}
+      
+    ]
+  }
+  
+];
 
-// set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var width = 800;
+var height = 600;
+var margin = 50;
+var duration = 250;
 
-// parse the date / time
-var parseTime = d3.timeParse("%Y");
+var lineOpacity = "0.25";
+var lineOpacityHover = "0.85";
+var otherLinesOpacityHover = "0.1";
+var lineStroke = "1.5px";
+var lineStrokeHover = "2.5px";
 
-// set the ranges
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+var circleOpacity = '0.85';
+var circleOpacityOnLineHover = "0.25"
+var circleRadius = 3;
+var circleRadiusHover = 6;
 
-// define the 1st line
-var valueline = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.monde); });
 
-// define the 2nd line
-var valueline2 = d3.line()
-    .x(function(d) { return x(d.date); })
-    .y(function(d) { return y(d.guardian); });
-
-// append the svg obgect to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-
-// Get the data
-d3.csv("data1.csv", function(error, data) {
-  if (error) throw error;
-
-  // format the data
-  data.forEach(function(d) {
-      d.date = parseTime(d.date);
-      d.guardian = +d.guardian;
-      d.monde = +d.monde;
+/* Format Data */
+var parseDate = d3.timeParse("%Y");
+data.forEach(function(d) { 
+  d.values.forEach(function(d) {
+    d.date = parseDate(d.date);
+    d.titles = +d.titles;    
   });
-
-  // Scale the range of the data
-  x.domain(d3.extent(data, function(d) { return d.date; }));
-  y.domain([0, d3.max(data, function(d) {
-	  return Math.max(d.guardian, d.monde); })]);
-
-  // Add the valueline path.
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .style("stroke", "blue")
-      .attr("d", valueline);
-
-  // Add the valueline2 path.
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .style("stroke", "red")
-      .attr("d", valueline2);
-
-  // Add the X Axis
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-  // Add the Y Axis
-  svg.append("g")
-      .call(d3.axisLeft(y));
-
 });
 
-</script>
-</body>
 
+/* Scale */
+var xScale = d3.scaleTime()
+  .domain(d3.extent(data[0].values, d => d.date))
+  .range([0, width-margin]);
+
+var yScale = d3.scaleLinear()
+  .domain([0, d3.max(data[0].values, d => d.titles)])
+  .range([height-margin, 0]);
+
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+/* Add SVG */
+var svg = d3.select("#chart").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale(d.titles));
+
+let lines = svg.append('g')
+  .attr('class', 'lines');
+
+lines.selectAll('.line-group')
+  .data(data).enter()
+  .append('g')
+  .attr('class', 'line-group')  
+  .on("mouseover", function(d, i) {
+      svg.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))        
+        .text(d.name)
+        .attr("text-anchor", "middle")
+        .attr("x", (width-margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')  
+  .attr('d', d => line(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+					.style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+					.style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+					.style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+					.style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines.selectAll("circle-group")
+  .data(data).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")  
+  .on("mouseover", function(d) {
+      d3.select(this)     
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.titles}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale(d.titles) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")  
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale(d.titles))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this) 
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);  
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).ticks(11);
+var yAxis = d3.axisLeft(yScale).ticks(11);
+
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+  .text("total number of titles per year");
+      </script>
+  </body>
 </html>
