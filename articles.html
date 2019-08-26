@@ -30,14 +30,14 @@ div.tooltip {
     height: 40px;					
     padding: 2px;	
     font: 14px sans-serif;
-    background: lightsteelblue;
+    background: darkorange;
     line-height: 1.5em;	
     border: 0px;		
     border-radius: 8px;			
     pointer-events: none;			
 }
     #tooltip_g{
-        background: pink;
+        background: lightsteelblue;
     }
     
 
@@ -139,8 +139,8 @@ d3.csv("data.csv", function(error, data) {
     chart1.selectAll("dot")	
         .data(data)			
     .enter().append("circle")								
-        .attr("r", 3)
-        .style("fill", "steelblue")
+        .attr("r", 5)
+        .style("fill", "darkorange")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) {
             var foo = y(d.lemonde);
@@ -163,8 +163,8 @@ d3.csv("data.csv", function(error, data) {
     chart1.selectAll("dot")	
         .data(data)			
     .enter().append("circle")								
-        .attr("r", 3)
-        .style("fill", "red")
+        .attr("r", 5)
+        .style("fill", "steelblue")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { 
             var foo = y(d.theguardian);
