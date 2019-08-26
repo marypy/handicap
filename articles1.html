@@ -1,116 +1,92 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
-
-text {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
+<style> /* set the CSS */
 
 .line {
   fill: none;
-  stroke-width: 1.5px;
-}
-
-.label {
-  text-anchor: middle;
-}
-
-.label rect {
-  fill: white;
-}
-
-.label-key {
-  font-weight: bold;
+  stroke: steelblue;
+  stroke-width: 2px;
 }
 
 </style>
-<svg width="960" height="500"></svg>
-<script src="//d3js.org/d3.v4.0.0-alpha.9.min.js"></script>
+<body>
+
+<!-- load the d3.js library -->    	
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var parseTime = d3.timeParse("%Y");
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-var svg = d3.select("svg");
+// parse the date / time
+var parseTime = d3.timeParse("%d-%b-%y");
 
-var margin = {top: 30, right: 50, bottom: 30, left: 30},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom,
-    labelPadding = 3;
+// set the ranges
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
 
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+// define the 1st line
+var valueline = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
 
-d3.requestTsv("data.tsv", function(d) {
-  d.date = parseTime(d.date);
-  for (var k in d) if (k !== "date") d[k] = +d[k];
-  return d;
-}, function(error, data) {
+// define the 2nd line
+var valueline2 = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.open); });
+
+// append the svg obgect to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("data2.csv", function(error, data) {
   if (error) throw error;
 
-  var series = data.columns.slice(1).map(function(key) {
-    return data.map(function(d) {
-      return {
-        key: key,
-        date: d.date,
-        value: d[key]
-      };
-    });
+  // format the data
+  data.forEach(function(d) {
+      d.date = parseTime(d.date);
+      d.close = +d.close;
+      d.open = +d.open;
   });
 
-  var x = d3.scaleTime()
-      .domain([data[0].date, data[data.length - 1].date])
-      .range([0, width]);
+  // Scale the range of the data
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain([0, d3.max(data, function(d) {
+	  return Math.max(d.close, d.open); })]);
 
-  var y = d3.scaleLinear()
-      .domain([0, d3.max(series, function(s) { return d3.max(s, function(d) { return d.value; }); })])
-      .range([height, 0]);
+  // Add the valueline path.
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
 
-  var z = d3.scaleCategory10();
+  // Add the valueline2 path.
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .style("stroke", "red")
+      .attr("d", valueline2);
 
-  g.append("g")
-      .attr("class", "axis axis--x")
+  // Add the X Axis
+  svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
-  var serie = g.selectAll(".serie")
-      .data(series)
-    .enter().append("g")
-      .attr("class", "serie");
+  // Add the Y Axis
+  svg.append("g")
+      .call(d3.axisLeft(y));
 
-  serie.append("path")
-      .attr("class", "line")
-      .style("stroke", function(d) { return z(d[0].key); })
-      .attr("d", d3.line()
-          .x(function(d) { return x(d.date); })
-          .y(function(d) { return y(d.value); }));
-
-  var label = serie.selectAll(".label")
-      .data(function(d) { return d; })
-    .enter().append("g")
-      .attr("class", "label")
-      .attr("transform", function(d, i) { return "translate(" + x(d.date) + "," + y(d.value) + ")"; });
-
-  label.append("text")
-      .attr("dy", ".35em")
-      .text(function(d) { return d.value; })
-    .filter(function(d, i) { return i === data.length - 1; })
-    .append("tspan")
-      .attr("class", "label-key")
-      .text(function(d) { return " " + d.key; });
-
-  label.append("rect", "text")
-      .datum(function() { return this.nextSibling.getBBox(); })
-      .attr("x", function(d) { return d.x - labelPadding; })
-      .attr("y", function(d) { return d.y - labelPadding; })
-      .attr("width", function(d) { return d.width + 2 * labelPadding; })
-      .attr("height", function(d) { return d.height + 2 * labelPadding; });
 });
 
 </script>
+</body>
+
