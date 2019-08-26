@@ -2,11 +2,11 @@
 <meta charset="utf-8">
 <style> /* set the CSS */
 
-.line {
+/* .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 2px;
-}
+} */
 
 </style>
 <body>
@@ -67,6 +67,7 @@ d3.csv("data1.csv", function(error, data) {
   svg.append("path")
       .data([data])
       .attr("class", "line")
+      .style("stroke", "blue")
       .attr("d", valueline);
 
   // Add the valueline2 path.
