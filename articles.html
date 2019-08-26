@@ -139,7 +139,7 @@ d3.csv("data.csv", function(error, data) {
     chart1.selectAll("dot")	
         .data(data)			
     .enter().append("circle")								
-        .attr("r", 5)
+        .attr("r", 3)
         .style("fill", "darkorange")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) {
@@ -163,7 +163,7 @@ d3.csv("data.csv", function(error, data) {
     chart1.selectAll("dot")	
         .data(data)			
     .enter().append("circle")								
-        .attr("r", 5)
+        .attr("r", 3)
         .style("fill", "steelblue")
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { 
