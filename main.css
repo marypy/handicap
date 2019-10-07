@@ -305,6 +305,9 @@ h2{
   padding-right: 10%;
   line-height: 1.5em; 
 }
+#main_learn>.quote{
+  padding-left: 50px; 
+  padding-right: 50px;
 }
 #legend{
   font-size:12px;
