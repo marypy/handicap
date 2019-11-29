@@ -302,7 +302,7 @@ h2{
     grid-template-rows: auto;
 }
 
-#main>div>p, #main>div>span, #main_learn>div>p{
+#main>div>p, #main>div>span, #main_learn>div>p, #main_learn>div>ul {
   max-width: 90%;
   padding-right: 10%; 
 }
